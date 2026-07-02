@@ -1,0 +1,244 @@
+/* =====================================================================
+   Agilean Design System — Foundations
+   Extracted from agilean-core-frontend (tailwind.config.js + src/index.css)
+   ===================================================================== */
+
+/* DM Sans — official brand font (from @fontsource/dm-sans in the repo) */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+:root {
+  /* === Brand (Primary) — Laranja =========================================
+     The core brand orange. Used for Planner product, primary buttons,
+     focus rings, accent gradients, and all "product actions" by default. */
+  --brand-99: #FFF6EF;
+  --brand-95: #FFF0E6;
+  --brand-90: #FEDBC6;
+  --brand-80: #FCC3A7;
+  --brand-70: #FFA97D;
+  --brand-60: #FF8C57;
+  --brand-50: #FD7236;   /* base brand — most-used */
+  --brand-40: #F85D1A;   /* hover / pressed */
+  --brand-30: #C75021;   /* text on light-orange fills */
+  --brand-20: #973C1B;
+  --brand-10: #5C2513;
+
+  /* === CPO (Indigo) — Secondary product ==================================
+     Used ONLY when the user is inside the Curto Prazo Operacional app.
+     Applied by adding .product-cpo to <html>; aliases --product-* to CPO. */
+  --cpo-99: #F4F5FB;
+  --cpo-95: #E8EAF6;
+  --cpo-90: #D1D5EC;
+  --cpo-80: #A3ABD9;
+  --cpo-70: #8690CF;
+  --cpo-60: #6E7CC7;   /* base CPO indigo */
+  --cpo-50: #5A68B8;
+  --cpo-40: #4A57A0;
+  --cpo-30: #3B4680;
+  --cpo-20: #2C3460;
+  --cpo-10: #1D2340;
+
+  /* === Product (theme alias) ============================================
+     Components use bg-product-50 / text-product-30 etc. so they
+     automatically re-theme between Planner (brand) and CPO (cpo). */
+  --product-99: var(--brand-99);
+  --product-95: var(--brand-95);
+  --product-90: var(--brand-90);
+  --product-80: var(--brand-80);
+  --product-70: var(--brand-70);
+  --product-60: var(--brand-60);
+  --product-50: var(--brand-50);
+  --product-40: var(--brand-40);
+  --product-30: var(--brand-30);
+  --product-20: var(--brand-20);
+  --product-10: var(--brand-10);
+
+  /* === Steel (Secondary) — Aço Aquecido =================================
+     Cool grays with a slight warmth. Used for "secondary" actions
+     and utility surfaces — not for product accents. */
+  --steel-95: #f3f3f4;
+  --steel-90: #e0e1e3;
+  --steel-70: #9a9ea0;
+  --steel-60: #6e7274;
+  --steel-50: #5c6062;
+  --steel-40: #4a4e50;
+  --steel-30: #393c3e;
+  --steel-20: #27292b;
+
+  /* === Neutros Quentes — Warm neutrals ===================================
+     A sand/paper-toned neutral system. CRITICAL: these are WARM,
+     not pure grays. Background is cream (#faf8f6), borders are
+     tan (#e8ddd3), text is dark brown (#3d2e22). This is the
+     single-most-distinctive visual trait of the brand. */
+  --neutral-bg:          #faf8f6;  /* page background */
+  --neutral-muted:       #f5f0eb;  /* input bg, soft surfaces */
+  --neutral-border:      #e8ddd3;  /* all card/input borders */
+  --neutral-placeholder: #c4b5a5;  /* placeholder + disabled text */
+  --neutral-subtle:      #8c7a6b;  /* secondary text */
+  --neutral-text-muted:  #5a4a3c;  /* secondary-strong text */
+  --neutral-text:        #3d2e22;  /* primary body text */
+
+  /* === Semantic colors ==================================================
+     Standard success/error/warning/info, each with a soft pair. */
+  --success:           #16a34a;
+  --success-soft-bg:   #f0fdf4;
+  --success-soft-text: #15803d;
+  --error:             #dc2626;
+  --error-soft-bg:     #fef2f2;
+  --error-soft-text:   #b91c1c;
+  --warning:           #d97706;
+  --warning-soft-bg:   #fffbeb;
+  --warning-soft-text: #b45309;
+  --info:              #2563eb;
+  --info-soft-bg:      #eff6ff;
+  --info-soft-text:    #1d4ed8;
+
+  /* === Shadows — warm-brown, NOT neutral gray ===========================
+     Uses rgba(61,46,34,...) so shadows feel part of the paper
+     system, not a generic drop. */
+  --shadow-sm: 0 1px 2px rgba(61,46,34,0.06);
+  --shadow-md: 0 1px 3px rgba(61,46,34,0.08), 0 4px 12px rgba(61,46,34,0.04);
+  --shadow-lg: 0 4px 6px rgba(61,46,34,0.06), 0 10px 24px rgba(61,46,34,0.1);
+
+  /* Brand-tinted shadows (seen on primary buttons) */
+  --shadow-brand-sm: 0 1px 3px rgba(253,114,54,0.3);
+  --shadow-brand-md: 0 2px 12px rgba(253,114,54,0.25);
+  --shadow-cpo-sm:   0 1px 3px rgba(110,124,199,0.3);
+  --shadow-cpo-md:   0 2px 12px rgba(110,124,199,0.25);
+
+  /* === Border radius ====================================================
+     The brand is small/medium rounded — never pill-y or brutalist. */
+  --radius-sm:   6px;   /* small buttons, chips */
+  --radius-md:   8px;   /* inputs, default buttons */
+  --radius-lg:   12px;  /* cards, dialogs */
+  --radius-xl:   16px;  /* onboarding tiles, hero cards */
+  --radius-2xl:  20px;  /* product tiles on the hub */
+  --radius-full: 9999px;
+
+  /* === Spacing (Tailwind's 4-px scale is used verbatim) ================ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* === Layout ===========================================================
+     Page padding and content max width match src/index.css defaults. */
+  --page-padding: 24px;
+  --content-max-width: 1280px;
+
+  /* === shadcn/ui semantic layer =========================================
+     Exposed so shadcn components (Button, Input, Card) work unchanged. */
+  --background:            var(--neutral-bg);
+  --foreground:            var(--neutral-text);
+  --card:                  #ffffff;
+  --card-foreground:       var(--neutral-text);
+  --popover:               #ffffff;
+  --popover-foreground:    var(--neutral-text);
+  --primary:               var(--brand-50);
+  --primary-foreground:    #ffffff;
+  --secondary:             var(--steel-50);
+  --secondary-foreground:  #ffffff;
+  --muted:                 var(--neutral-muted);
+  --muted-foreground:      var(--neutral-subtle);
+  --accent:                var(--brand-95);
+  --accent-foreground:     var(--brand-30);
+  --destructive:           var(--error);
+  --destructive-foreground:#ffffff;
+  --border:                var(--neutral-border);
+  --input:                 var(--neutral-border);
+  --ring:                  var(--brand-50);
+
+  /* === Typography — scale + weights ===================================== */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --fs-h1:       24px;   --lh-h1: 1.2;   --fw-h1: 700;
+  --fs-h2:       20px;   --lh-h2: 1.3;   --fw-h2: 600;
+  --fs-h3:       18px;   --lh-h3: 1.3;   --fw-h3: 600;
+  --fs-subtitle: 15px;   --lh-subtitle: 1.4; --fw-subtitle: 500;
+  --fs-body:     15px;   --lh-body: 1.5; --fw-body: 400;
+  --fs-body-sm:  13px;   --lh-body-sm: 1.5; --fw-body-sm: 400;
+  --fs-caption:  12px;   --lh-caption: 1.4; --fw-caption: 500;
+  --fs-overline: 11px;   --lh-overline: 1.3; --fw-overline: 500; --ls-overline: 0.05em;
+}
+
+/* === Product theme override — applied on <html class="product-cpo">  */
+.product-cpo {
+  --product-99: var(--cpo-99);
+  --product-95: var(--cpo-95);
+  --product-90: var(--cpo-90);
+  --product-80: var(--cpo-80);
+  --product-70: var(--cpo-70);
+  --product-60: var(--cpo-60);
+  --product-50: var(--cpo-50);
+  --product-40: var(--cpo-40);
+  --product-30: var(--cpo-30);
+  --product-20: var(--cpo-20);
+  --product-10: var(--cpo-10);
+
+  --primary: var(--cpo-50);
+  --ring:    var(--cpo-50);
+  --accent:  var(--cpo-95);
+  --accent-foreground: var(--cpo-30);
+}
+
+/* === Base / semantic element styles ================================== */
+
+html, body {
+  font-family: var(--font-sans);
+  color: var(--neutral-text);
+  background: var(--neutral-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1 {
+  font-size: var(--fs-h1); line-height: var(--lh-h1); font-weight: var(--fw-h1);
+  letter-spacing: -0.01em; color: var(--neutral-text); margin: 0;
+}
+h2, .h2 {
+  font-size: var(--fs-h2); line-height: var(--lh-h2); font-weight: var(--fw-h2);
+  color: var(--neutral-text); margin: 0;
+}
+h3, .h3 {
+  font-size: var(--fs-h3); line-height: var(--lh-h3); font-weight: var(--fw-h3);
+  color: var(--neutral-text); margin: 0;
+}
+.subtitle {
+  font-size: var(--fs-subtitle); line-height: var(--lh-subtitle); font-weight: var(--fw-subtitle);
+  color: var(--neutral-text);
+}
+p, .body {
+  font-size: var(--fs-body); line-height: var(--lh-body); font-weight: var(--fw-body);
+  color: var(--neutral-text); margin: 0;
+}
+.body-sm {
+  font-size: var(--fs-body-sm); line-height: var(--lh-body-sm); font-weight: var(--fw-body-sm);
+  color: var(--neutral-text);
+}
+.caption {
+  font-size: var(--fs-caption); line-height: var(--lh-caption); font-weight: var(--fw-caption);
+  color: var(--neutral-subtle);
+}
+.overline {
+  font-size: var(--fs-overline); line-height: var(--lh-overline); font-weight: var(--fw-overline);
+  letter-spacing: var(--ls-overline); text-transform: uppercase; color: var(--neutral-subtle);
+}
+code, .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 12px; color: var(--neutral-subtle);
+}
+
+/* Hero numerals — a 36px/800 treatment seen on the Hub hero */
+.display {
+  font-size: 36px; line-height: 1.15; font-weight: 800;
+  letter-spacing: -0.02em; color: var(--neutral-text);
+}
+.display .gradient-brand {
+  background: linear-gradient(90deg, var(--brand-50), var(--cpo-50));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
